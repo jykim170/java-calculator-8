@@ -11,7 +11,12 @@ public class Application {
             int result = StringAddCalculator.add(input);
             System.out.println("결과 : " + result);
         } catch (IllegalArgumentException e) {
+            // 과제 요구 예외는 그대로 재전달
             System.out.println(e.getMessage());
             throw e;
+        } catch (Exception e) {
+            // 그 밖의 모든 예외를 IllegalArgumentException으로 래핑해서 재전달
+            throw new IllegalArgumentException(e);
+        }
     }
 }
